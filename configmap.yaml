@@ -3,6 +3,7 @@ data:
   Hellow: World
 kind: ConfigMap
 metadata:
+  namespace: apps
   annotations:
   labels:
   name: common-configmap
