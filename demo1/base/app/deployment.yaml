@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: IMAGE-TAG # update the image
+        image: nginx:1.16.1
         ports:
         - containerPort: 80
