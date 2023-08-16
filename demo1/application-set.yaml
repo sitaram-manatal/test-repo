@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: demo1
+  namespace: argocd
+spec:
+  # generators:
+  #   matrix:
+  generators:
+  - list:
+      elements:
+        - appName: app
+      # - pullRequst:
+      #   github:
+      #     owner: sitaram-manatal
+      #     repo: test-repo
+      #     # tokenRef:
+      #     #   secretName: github-token
+      #     #   key: token
+      #     labels:
+      #     - preview
+      #   requeueAfterSeconds: 1800
+        
+  template:
+    metadata:
+      name: "test-{{appName}}"
+      annotations:
+        argocd.argoproj.io/manifest-generate-paths: ".;.."
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/sitaram-manatal/test-repo.git
+        targetRevision: HEAD
+        path: "demo1/envs/preview"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: apps
+      syncPolicy:
+        syncOptions:
+          - FailOnSharedResource=false
+        automated:
+          prune: true
+          selfHeal: true
