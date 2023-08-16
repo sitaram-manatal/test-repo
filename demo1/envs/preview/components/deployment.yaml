@@ -1,10 +1,10 @@
 - op: add
-  path: /spec/template/spec/containers/0/envFrom/0
+  path: /spec/template/spec/containers/0/envFrom/-1
   value:
     secretRef:
       name: custom-secret
 - op: add
-  path: /spec/template/spec/containers/0/envFrom/0
+  path: /spec/template/spec/containers/0/envFrom/-1
   value:
     configMapRef:
       name: custom-configmap

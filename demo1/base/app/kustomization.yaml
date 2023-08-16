@@ -1,3 +1,6 @@
-nameSuffix: -app
+
 resources:
-- deployment.yaml
+  - ../common/
+
+patches:
+  - path: deployment.yaml
