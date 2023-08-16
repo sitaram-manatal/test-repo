@@ -1,0 +1,3 @@
+nameSuffix: -app
+resources:
+- deployment.yaml

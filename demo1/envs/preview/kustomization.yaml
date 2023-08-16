@@ -1,4 +1,7 @@
-configMapGenerator:
-- name: example-configmap
-  literals:
-  - FOO=Bar
+
+resources:
+- ../../base/app/
+- ../../base/common/
+
+components:
+  - ../components/

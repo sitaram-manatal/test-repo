@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  Hellow: World
+kind: ConfigMap
+metadata:
+  annotations:
+  labels:
+  name: common-configmap
